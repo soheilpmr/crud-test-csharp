@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Mc2.CrudTest.Presentation.Shared.BaseInfra.UnitOfWork
 {
-    internal class UnitOfWorkAsync<Context> : IUnitOfWorkAsync
+    public class UnitOfWorkAsync<Context> : IUnitOfWorkAsync
         where Context : DbContext
     {
-        private readonly Context _context;
+        protected readonly Context _context;
         private bool disposed = false;
         public UnitOfWorkAsync(Context context)
         {

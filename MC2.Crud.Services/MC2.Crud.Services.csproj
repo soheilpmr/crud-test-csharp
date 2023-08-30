@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Mc2.CrudTest.Presentation\Shared\Mc2.CrudTest.Presentation.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="BaseServicesImplemention\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="libphonenumber-csharp" Version="8.13.19" />
+  </ItemGroup>
+
+</Project>

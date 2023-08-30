@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Mc2.CrudTest.Presentation.Shared.BaseInfra.Repositories.Write
 {
-    public class RepositoryWriteAsync<DomainModelEntity, DomainModelItem, PrimaryKeyType> : IRepositoryWriteAsync<DomainModelItem, PrimaryKeyType>
+    public class RepositoryWriteAsync<DomainModelEntity, DomainModelItem, PrimaryKeyType, TContext> : IRepositoryWriteAsync<DomainModelItem, PrimaryKeyType>
         where DomainModelItem : Domain.Model<PrimaryKeyType>
         where DomainModelEntity : DomainModelItem
         where PrimaryKeyType : struct
+        where TContext : DbContext
     {
         protected readonly DbSet<DomainModelEntity> _entities;
         protected readonly DbContext _context;

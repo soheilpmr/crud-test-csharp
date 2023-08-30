@@ -1,5 +1,4 @@
-﻿using Mc2.CrudTest.Presentation.Shared.BaseInfra.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.Collections.Generic;
@@ -10,14 +9,15 @@ using System.Threading.Tasks;
 
 namespace Mc2.CrudTest.Presentation.Shared.BaseInfra.Repositories.Read
 {
-    public abstract class RepositoryReadAsync<DomainModelEntity, DomainModelItem, PrimaryKeyType> : IRepositoryReadAsync<DomainModelItem, PrimaryKeyType>
+    public abstract class RepositoryReadAsync<DomainModelEntity, DomainModelItem, PrimaryKeyType, TContext> : IRepositoryReadAsync<DomainModelItem, PrimaryKeyType>
         where DomainModelItem : Domain.Model<PrimaryKeyType>
         where DomainModelEntity : DomainModelItem
         where PrimaryKeyType : struct
+        where TContext : DbContext
     {
         protected readonly DbSet<DomainModelEntity> _entities;
         private readonly DbContext _dbContext;
-        public RepositoryReadAsync(ReadDBContext dbContext)
+        public RepositoryReadAsync(TContext dbContext)
         {
             _dbContext = dbContext;    
             _entities = dbContext.Set<DomainModelEntity>();
